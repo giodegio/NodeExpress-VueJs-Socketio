@@ -63,15 +63,22 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
+
     <v-footer :fixed="fixed" app>
       <span>&copy; 2017</span>
+      <v-spacer></v-spacer>
+      <span v-if="serverInfo.socketIo.connected">Socket.io connected! #clients: {{serverInfo.socketIo.numClients}} - Random number from server: "{{random_number}}"</span>
+      <span span v-else>Socket.io not connected</span>
     </v-footer>
   </v-app>
 </template>
 
 <script>
+import { mapState } from 'vuex'; // to map multiple store states in local variables at once
+
 export default {
-  data () {
+  name: 'App',
+  data() {
     return {
       clipped: false,
       drawer: true,
@@ -83,9 +90,20 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Vuetify.js'
-    }
+      title: 'Vuetify.js',
+
+      random_number: 0
+    };
   },
-  name: 'App'
-}
+  computed: {
+    ...mapState({
+      serverInfo: state => state.AppData.server
+    })
+  },
+  sockets: {
+    randomNumberUpdate: function(randomNumber) {
+      this.random_number = randomNumber;
+    }
+  }
+};
 </script>

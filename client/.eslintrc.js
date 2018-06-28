@@ -20,6 +20,12 @@ module.exports = {
     // allow async-await
     'generator-star-spacing': 'off',
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    // always require semicolons (with warning - green sign)
+    "semi": ["warn", "always"],
+    "space-before-function-paren": ["warn", "never"],
+    // enforce a maximum line length
+    "max-len": ["warn", 180],
+    "comma-dangle": ["warn", "never"]
   }
 }
