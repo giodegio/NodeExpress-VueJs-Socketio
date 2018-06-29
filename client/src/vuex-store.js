@@ -53,7 +53,7 @@ export default new Vuex.Store({
     }
   }
 
-  // For Mutations and Actions names synyax, see "Vuex Store integration" section in the Usage documentation
+  // For Mutations and Actions names synytax, see "Vuex Store integration" section in the Usage documentation
   //
   // Example:
   // -----------------------------------------------------------

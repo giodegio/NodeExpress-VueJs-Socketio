@@ -14,7 +14,9 @@ import io from 'socket.io-client'; // Socket.io client
 export const SocketInstance = io();
 
 // -------------------------------------------------
-// Caution: for vue-socket.io-extended, the third parameter is an object!!!
+// Caution:
+// for vue-socket.io-extended, the third parameter is an object!!!
+// See "Vuex Store integration" section in the Usage documentation
 // -------------------------------------------------
 Vue.use(VueSocketio, SocketInstance, {store});
 
